@@ -15,6 +15,10 @@ app = FastAPI()
 async def root():
   return {"message": "This is my first FastAPI"}
 
+@app.post("/items/")
+async def create_item(item: Item):
+  return item
+
 @app.get("/items/{num}")
 async def read_num(num: int):
   return {"number": num}
